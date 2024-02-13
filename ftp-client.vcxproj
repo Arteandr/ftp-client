@@ -110,6 +110,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -128,18 +129,32 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ClientLayer.cpp" />
     <ClCompile Include="entrypoint.cpp" />
     <ClCompile Include="FTP.cpp" />
+    <ClCompile Include="UI\LogsWindow.cpp" />
+    <ClCompile Include="UI\FileBrowserWindow.cpp" />
+    <ClCompile Include="vendor\imgui_dialog\ImGuiFileDialog.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientLayer.h" />
     <ClInclude Include="FTP.h" />
+    <ClInclude Include="UI\LogsWindow.h" />
     <ClInclude Include="UI\Application.h" />
+    <ClInclude Include="UI\FileBrowserWindow.h" />
     <ClInclude Include="UI\Layer.h" />
+    <ClInclude Include="UI\Window.h" />
+    <ClInclude Include="utils\Utils.hpp" />
+    <ClInclude Include="vendor\dirent\dirent.h" />
+    <ClInclude Include="vendor\imgui_dialog\dirent\dirent.h" />
+    <ClInclude Include="vendor\imgui_dialog\ImGuiFileDialog.h" />
+    <ClInclude Include="vendor\imgui_dialog\ImGuiFileDialogConfig.h" />
+    <ClInclude Include="vendor\imgui_dialog\stb\stb_image.h" />
+    <ClInclude Include="vendor\imgui_dialog\stb\stb_image_resize.h" />
     <ClInclude Include="vendor\imgui_notify\IconsFontAwesome6.h" />
     <ClInclude Include="vendor\imgui_notify\ImGuiNotify.hpp" />
   </ItemGroup>
@@ -147,6 +162,13 @@
     <Font Include="resources\fonts\fa-regular-400.ttf" />
     <Font Include="resources\fonts\fa-solid-900.ttf" />
     <Font Include="resources\fonts\JetBrainsMonoNL-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="vendor\imgui_dialog\dirent\ChangeLog" />
+    <None Include="vendor\imgui_dialog\dirent\LICENSE" />
+    <None Include="vendor\imgui_dialog\dirent\README.md" />
+    <None Include="vendor\imgui_dialog\stb\LICENSE" />
+    <None Include="vendor\imgui_dialog\stb\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

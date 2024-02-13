@@ -9,6 +9,7 @@
 #include <UI/Application.h>
 #include <ClientLayer.h>
 
+#include <vendor/imgui_dialog/ImGuiFileDialog.h>
 #include <vendor/imgui_notify/IconsFontAwesome6.h>
 #include <vendor/imgui_notify/ImGuiNotify.hpp>
 #include <iostream>
@@ -53,12 +54,12 @@ int main(void)
     style.ChildRounding = 6.0f;
     style.PopupRounding = 6.0f;
     style.FrameRounding = 6.0f;
+
     // When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
     if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
     {
         style.WindowRounding = 0.0f;
-        style.Colors[ImGuiCol_WindowBg] = ImVec4{ .5f, .5f, .5f, 1.0f };
-        style.Colors[ImGuiCol_ModalWindowDimBg] = ImVec4{ 0.565f, 0.538f, 0.711f, .1f };
+        style.Colors[ImGuiCol_ModalWindowDimBg] = ImVec4{ 0.565f, 0.538f, 0.711f, .4f };
     }
 
     style.WindowTitleAlign = ImVec2(0.5f, 0.5f);
@@ -76,7 +77,6 @@ int main(void)
 
     if (!fontAwesomeFile.good())
     {
-        // If it's not good, then we can't find the font and should abort
         std::cerr << "Could not find the FontAwesome font file." << std::endl;
         abort();
     }
@@ -125,32 +125,22 @@ int main(void)
             ImGui::PopStyleVar(2);
 
             // Dockspace
-            ImGuiIO& io = ImGui::GetIO();
-            ImGuiStyle& style = ImGui::GetStyle();
-            float minWinSizeX = style.WindowMinSize.x;
-            ImGui::DockSpace(ImGui::GetID("MyDockspace"));
+            ImGui::DockSpace(ImGui::GetID("MyDockspace"), ImVec2(0.0f, 0.0f), ImGuiDockNodeFlags_PassthruCentralNode);
             for (auto& layer : app->m_LayerStack)
                 layer->OnUIRender();
 
             ImGui::End();
         }
 
-        // Notifications style setup
+        ImGuiFileDialog::Instance()->SetFileStyle(IGFD_FileStyleByTypeDir, "", ImVec4(0.5f, 1.0f, 0.9f, 0.9f), ICON_FA_FOLDER_CLOSED);
+        ImGuiFileDialog::Instance()->SetFileStyle(IGFD_FileStyleByTypeFile, "", ImVec4(1.0f,1.0f,1.0f,1.0f), ICON_FA_FILE);
+
+        // Notfi
         ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.f); // Disable round borders
         ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.f); // Disable borders
-
-        // Notifications color setup
         ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.10f, 0.10f, 0.10f, 1.00f)); // Background color
-
-
-        // Main rendering function
         ImGui::RenderNotifications();
-
-
-        //——————————————————————————————— WARNING ———————————————————————————————
-        // Argument MUST match the amount of ImGui::PushStyleVar() calls 
         ImGui::PopStyleVar(2);
-        // Argument MUST match the amount of ImGui::PushStyleColor() calls 
         ImGui::PopStyleColor(1);
 
         ImGui::Render();

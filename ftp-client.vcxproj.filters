@@ -24,6 +24,15 @@
     <ClCompile Include="FTP.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="UI\FileBrowserWindow.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\LogsWindow.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui_dialog\ImGuiFileDialog.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UI\Layer.h">
@@ -41,7 +50,37 @@
     <ClInclude Include="vendor\imgui_notify\ImGuiNotify.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="UI\Window.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\FileBrowserWindow.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\LogsWindow.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Utils.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\dirent\dirent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
     <ClInclude Include="vendor\imgui_notify\IconsFontAwesome6.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui_dialog\ImGuiFileDialog.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui_dialog\ImGuiFileDialogConfig.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui_dialog\dirent\dirent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui_dialog\stb\stb_image.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui_dialog\stb\stb_image_resize.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
@@ -49,5 +88,12 @@
     <Font Include="resources\fonts\fa-regular-400.ttf" />
     <Font Include="resources\fonts\fa-solid-900.ttf" />
     <Font Include="resources\fonts\JetBrainsMonoNL-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="vendor\imgui_dialog\dirent\ChangeLog" />
+    <None Include="vendor\imgui_dialog\dirent\LICENSE" />
+    <None Include="vendor\imgui_dialog\dirent\README.md" />
+    <None Include="vendor\imgui_dialog\stb\LICENSE" />
+    <None Include="vendor\imgui_dialog\stb\README.md" />
   </ItemGroup>
 </Project>

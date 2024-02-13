@@ -3,26 +3,8 @@
 // for use with https://github.com/FortAwesome/Font-Awesome/blob/6.x/webfonts/fa-regular-400.ttf, https://github.com/FortAwesome/Font-Awesome/blob/6.x/webfonts/fa-solid-900.ttf
 #pragma once
 
-/**
- * WARNING
- *
- * If used with cmake, replace the following lines:
- *
- * #define FONT_ICON_FILE_NAME_FAR "./fonts/fa-regular-400.ttf"
- * #define FONT_ICON_FILE_NAME_FAS "./fonts/fa-solid-900.ttf"
- *
- * with:
- *
- * #define FONT_ICON_FILE_NAME_FAR "../fonts/fa-regular-400.ttf"
- * #define FONT_ICON_FILE_NAME_FAS "../fonts/fa-solid-900.ttf"
-*/
-
-#define FONT_ICON_FILE_NAME_FAR "./fonts/fa-regular-400.ttf"
-#define FONT_ICON_FILE_NAME_FAS "./fonts/fa-solid-900.ttf"
-
-
-
-
+#define FONT_ICON_FILE_NAME_FAR "fa-regular-400.ttf"
+#define FONT_ICON_FILE_NAME_FAS "fa-solid-900.ttf"
 
 #define ICON_MIN_FA 0xe005
 #define ICON_MAX_16_FA 0xf8ff
@@ -1017,6 +999,7 @@
 #define ICON_FA_POO_STORM "\xef\x9d\x9a"	// U+f75a
 #define ICON_FA_POOP "\xef\x98\x99"	// U+f619
 #define ICON_FA_POWER_OFF "\xef\x80\x91"	// U+f011
+#define ICON_FA_REFRESH "\xef\x80\xa1"	// U+f011
 #define ICON_FA_PRESCRIPTION "\xef\x96\xb1"	// U+f5b1
 #define ICON_FA_PRESCRIPTION_BOTTLE "\xef\x92\x85"	// U+f485
 #define ICON_FA_PRESCRIPTION_BOTTLE_MEDICAL "\xef\x92\x86"	// U+f486
